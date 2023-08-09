@@ -1,0 +1,23 @@
+name: artifacts
+on: push
+
+jobjs:
+  up:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo Hello > world.txt
+      - uses: actions/upload-artifact@v3
+        with:
+          name: artifacts
+          path: world.txt
+
+  down:
+    runs-on: ubuntu-latest
+    needs: up
+    steps:
+      - run: cat artifacts.txt
+        continue-on-error: true
+      - uses: actions/download-artifact@v3
+        with:
+          name: artifacts
+      - run: cat artifacts.txt
