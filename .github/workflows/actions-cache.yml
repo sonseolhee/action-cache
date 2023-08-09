@@ -1,6 +1,6 @@
-name: Cache Workflow
+name: Our Workflow
 on: push
-jobjs:
+jobs:
   cache:
     runs-on: ubuntu-latest
     steps:
