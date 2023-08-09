@@ -1,16 +1,14 @@
-name: artifacts
+name: Our Artifacts 2
 on: push
-
-jobjs:
+jobs:
   up:
     runs-on: ubuntu-latest
     steps:
-      - run: echo Hello > world.txt
+      - run: echo "Hello, GitHub Actions!" > hello.txt
       - uses: actions/upload-artifact@v3
         with:
           name: artifacts
-          path: world.txt
-
+          path: hello.txt
   down:
     runs-on: ubuntu-latest
     needs: up
